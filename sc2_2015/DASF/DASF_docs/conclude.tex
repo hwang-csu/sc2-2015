@@ -1,0 +1,30 @@
+\section{Conclusion}
+
+This paper describes a distributed security framework (DASF) for
+Android-based mobile operating systems designed
+to provide dynamic privilege restrictions on 
+applications and security policies on sensitive
+data sent to the device.  Unlike Android's
+current security model, DASF
+allows an application's permissions to be
+restricted dynamically to address
+the security concern of mobile devices being
+used in sensitive environments.  Further,
+DASF also allows the organization
+to remain in control of the sensitive data that it
+sends to the mobile device by imposing security
+policies on that data.  We implemented a
+prototype of DASF by creating
+a system service to enforce privilege restrictions
+on applications, a custom \textit{InputStream} to 
+handle our message protocol, and by
+placing hooks in the Android system to enforce
+the security policies.  Further, we built a server
+module to send data and security policies to
+the device to demonstrate that the security
+policies can be dynamically imposed on both
+an application's privileges and on sensitive
+data.  Our experiments shows that DASF
+addresses the limitations of
+Android's current security model while
+imposing an reasonable performance overhead.

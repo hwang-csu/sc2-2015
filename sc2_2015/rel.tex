@@ -1,0 +1,46 @@
+\section{Related Work}
+It is believed that 1.4 billion smartphones will be in active by the
+end of 2013~\cite{rbiresearch}, and 57\% of them will run the Android
+operating system. The popularity of the Android devices has made it
+the top target of the mobile malware~\cite{Felt,Becher,xjiang_oak12}
+and other potential attacks~\cite{Fahl,Lu_ccs12}. To improve the
+smartphone security defense, a number of Android system extensions
+\cite{Nauman,Beresford,xjiang_11,Hornyack,Ongtang,Enck_ccs09,Lange,Andrus}
+have been proposed. Apex~\cite{Nauman} proposes an Android enforcement
+frame that enables flexible permission granting and resource
+restrictions.  MockDroid~\cite{Beresford} is closely related to this
+work in that the Android system is modified to protect the privacy.
+The main difference, however, is that MockDroid protects the privacy
+by adding perturbations to achieve ambiguity.  Our framework
+offers a system-wide, dynamic and strict access restrictions to
+protect the sensitive data.  In addition, our framework is 100\%
+transparent to general Android applications.  TISSA~\cite{xjiang_11}
+protects the private information leakage by an extra permission
+layer. AppFence~\cite{Hornyack} provides a similar fine-grained
+permission control.  Different from their schemes, our security
+framework is more versatile, protecting both outgoing and 
+incoming data through an on-demand dynamic security provisioning.
+Saint~\cite{Ongtang} uses the design-time security policies to manage 
+permissions. Kirin~\cite{Enck_ccs09} proposes a set of security rules
+to mitigate malware.  L4Android~\cite{Lange} and Cells~\cite{Andrus}
+provide the improved OS isolation for security.  
+
+%TaintDroid~\cite{taintdroid} provides a information flow monitoring
+%system to detect the potential privacy leakage. This idea is adopted
+%in our system framework to enforce the data access privilege and
+%propogation restrictions.
+
+TaintDroid~\cite{taintdroid} provides a information flow monitoring
+system to detect the potential privacy leakage. This idea is adopted
+in our system framework to enforce the data access privilege control
+and propagation restrictions.
+Static analysis has been used to detect privacy leak in Android
+applications~\cite{Batyuk} and potential security
+vulnerabilities~\cite{Lu_ccs12}.  Crowdroid~\cite{Burguera} analyzes
+the system calls dynamically to detect the malware.  Android
+permission specification has been thoroughly studied in
+Stowaway~\cite{Felt_ccs11} and PScout~\cite{Au_ccs12}.  As discussed
+previously, the permission based Android security system is
+insufficient to address the security challenges in the application
+compliant with the HIPAA rule.
+

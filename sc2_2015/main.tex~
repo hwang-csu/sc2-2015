@@ -1,0 +1,56 @@
+\documentclass[10pt,conference]{IEEEtran}
+
+\makeatletter
+\def\ps@headings{%
+\def\@oddhead{\mbox{}\scriptsize\rightmark \hfil \thepage}%
+\def\@evenhead{\scriptsize\thepage \hfil \leftmark\mbox{}}%
+\def\@oddfoot{}%
+\def\@evenfoot{}}
+\makeatother
+\pagestyle{headings}
+
+%\documentclass[preprint,10pt,nocopyrightspace]{sigplan-proc-varsize}
+%\documentclass[preprint,10pt]{acm_proc_article-sp}
+%!PN, old LaTeX209 font commands, replaced by the new ones
+% keeping just this one
+%\def\tenrm{\fontsize{10}{12}\normalfont\rmfamily\selectfont}
+%\def\BibTeX\left\{ \rmfamily B\kern-.05em{\scshape i\kern-.025em b}\kern-.08em \TeX}}
+\usepackage{epsfig}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{framed}
+\usepackage{multirow}
+\usepackage{subfigure}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{definition}{Definition}
+
+
+\begin{document}
+\title{A Distributed Android Security Framework}
+\author{
+    Benjamin E. Andow and Haodong Wang\\
+    Computer and Information Science Department\\
+    Cleveland State University\\
+    Cleveland, OH 44115, USA
+}
+
+
+\maketitle
+\input{abs}
+\input{intro}
+\input{background}
+\input{scheme}
+\input{proto}
+\input{eval}
+\input{rel}
+\input{conclude}
+%\vspace{-3mm}
+\bibliographystyle{plain}
+\bibliography{ref}
+%\end{scriptsize}
+
+
+\end{document}

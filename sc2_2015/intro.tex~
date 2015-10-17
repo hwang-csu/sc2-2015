@@ -1,0 +1,204 @@
+\section{Introduction}
+
+The incorporation of mobile devices in the healthcare industry can
+prove to be another beneficial tool for medical professionals 
+as doctors and
+nurses frequently communicate with each other to provide a diagnosis
+and treatment. While the appeal of modern communication through mobile
+devices, e.g., smartphones or tablets, has reached almost every other
+industry, the following observations witness the status of mobile
+devices in healthcare industry. First, a significant number of
+physicians and nurses are still relying on traditional clinical
+communication equipment, including pagers, phones and fax machine, yet
+a last generation wireless communication technology. Second, even
+though as many as 81\% healthcare professionals own and use the
+smartphones themselves every day~\cite{manhattan}, their devices
+either are not integrated into the healthcare communication system 
+(so that pagers are still needed), or cannot be trusted as the
+system components due to lacking of the security mechanism compliant
+to Health Insurance Portability and Accountability Act (HIPAA). It is
+reported \cite{mdnews} that lost, stolen, and non-HIPAA compliant
+healthcare mobile applications are blamed for protected health
+information (PHI) breach on electronic health record (EHR) systems. 
+
+To take advantage of modern communication means supported by the
+mobile devices, such as multimedia (text, image, and video) messaging
+and conferencing, and fully employ the emerging technologies in
+healthcare industry with HIPAA compliance, a system-wide security
+safeguard must be included to defend against the potential security
+breaches. Checking the HIPAA privacy rule~\cite{hipaarule}, we
+consider the following three security challenges for the deployment of
+the mobile devices in healthcare industry.
+
+\begin{itemize}
+\item \textit{Network security:} The user authentication and data
+  encryption schemes must be robust to protect PHI transmitted in the
+  communication channel and defend against various security attacks.
+\item \textit{Sensitive data flow confinement:} The service
+  administrator should be able to control the propagation of the
+  sensitive data and, if necessary, revoke the access to protected
+  data that is sent to the mobile devices. For example, the healthcare
+  organization should prevent PHI from being saved to the devices
+  (e.g., saving a medical record as a file) or being forwarded to
+  another device.
+\item \textit{Dynamic security demands and fine-grained access control
+  policies:} Access control policies should be flexible enough to meet
+  the dynamic security demands in the various scenarios that the
+  mobile devices are utilized. For example, the service administrator
+  may want to dynamically enforce system-wide access control policies
+  on the mobile devices to allow the organizations to dictate their
+  own security policies.  
+%\item \textit{PHI propagation control and revocation:} Healthcare
+%  organizations should be able to control the propagation of the PHI
+%  and revoke access to the PHI that is sent to the mobile device. For
+%  example, the healthcare organization should be able to prevent PHI
+%  from being saved to the device (e.g., saving a medical record as a
+%  file on the device) or being forwarded to another device (e.g., sending a
+%  medical record to another device). 
+\end{itemize}
+\begin{comment}
+While the network security can be guarded by existing security
+protocols, e.g., TLS/SSL, there is a non-trivial technical hurdle to
+address the latter two challenges to protect the data privacy.
+This work focuses on dynamic security provisioning and sensitive data
+propagation control.   
+%In this work, we select the Android
+%mobile operating system as the platform to develop our custom security
+%platform. 
+%To address the aforementioned security challenges and meet the
+%requirements of the HIPAA regulations, we select the Android mobile
+%operating system as the platform to develop our custom security
+%framework. However, the existing security model on the Android
+%platform fails to address the security challenges. In particular,
+The current mobile operating systems, e.g., Android, only support
+%Android’s current security model supports 
+static installation-time privilege control and do not support the
+dynamic restriction of previously granted privileges. Furthermore,
+their security model also does not include a mechanism to control the
+propagation and revocation of sensitive data on the device. One may
+note that the above data protection can be addressed in the
+application level by carefully designing and developing a
+privacy-preserving application. Unfortunately, the application
+level protection can be easily compromised due to the nature of the
+mobile devices and the limitations of the mobile operating
+systems. First, a stolen or lost device would give the adversary a
+total access of its stored data (e.g., by sideloading a malicious
+application that performs a full memory dump).  Second, a misbehaving
+user may also launch the above attack or simply acquires the system
+privilege (e.g., by rooting the device) to gain free access to the
+data stored in the memory. Therefore, we argue that a standalone
+mobile operating system is lacking the security
+measures that can defend against various security attacks toward the
+sensitive data. In this work, we propose a novel security design
+concept for mobile operating system: a distributed security
+framework (DSF).  DSF is based on a centralized (e.g., a cloud or a
+server) security system, and pushes the security boundary along the
+way to the mobile devices that include the mobile operating system
+(e.g., Android). In our design, user devices are tightly 
+coupled with the system server so that DSF makes sure all system
+activities on the device side are compliant with the system security
+policies. The loss of coupling between the device and the server,
+including stolen, lost and system rooting, is considered as the
+security attack that results in the security countermeasures, e.g.,
+remote wipe-out. 
+\end{comment}
+This paper uses the healthcare communication application as a platform
+to demonstrate the design and development of a Distributed
+Android Security Framework (DASF), a customized security framework for
+Android-based mobile operating systems designed to provide dynamic
+privilege restrictions on applications and security policies on
+sensitive data on the device. The coupling between the Android and the
+server is achieved by using secure heart-beat messages through a system
+security channel established during the installation time. 
+In addition, DASF includes an
+application-layer networking protocol (in regard to the OSI model)
+that allows the organization (e.g., hospital, clinic, etc.) to dictate
+their own security policies on the device and on data sent to the
+device. DASF allows an application’s access privileges to be flexibly
+set up upon invocation and adjusted on-the-fly to meet the various
+security needs when dealing with sensitive information. In mobile
+devices that install DASF, the organization ultimately controls the
+security policies that the system enforces on the user’s device and on
+the sensitive data that applications receive.
+
+\begin{comment}
+Therefore, the contributions that this paper provides are as
+follows.  First, this paper provides a security policy
+for dynamic system-wide privilege restrictions to be
+enforced on applications.  Second, this paper also provides
+a security policy that can be enforced on sensitive data.
+The aforementioned security policies can either be utilized
+by a server communicating with the mobile device or 
+by a developer who is creating an application.
+\end{comment}
+Our contributions in this paper can be summarized as follows. First,
+we use the medical communication system as an example to study the
+security problems and the HIPAA compliance issues caused by the
+mobile devices.  Second,
+we design a distributed Android security framework that not only
+provides dynamic system-wide security provisioning, but also protects
+the privacy of the received sensitive data and therefore defeats
+the PHI breach on mobile devices.  Third, we implement
+a prototype Android-based medical communication system and deploy our
+proposed security framework.  Our evaluation shows DASF is capable of
+defeating a variety of security attacks while only imposing a reasonable
+system overhead.
+
+
+\section{Attack Model and Security Assumptions}
+
+This work focuses on the security challenges of enforcing security
+policies on sensitive data sent to Android-based mobile devices and
+enforcing dynamic privilege restrictions.
+%Moreover, this work is focused on providing the security 
+%guarantees at the system-level rather than at the application-level.
+Thus, the security policies of the server and database management
+system are out of scope of this study. And we assume that the data is
+protected in the server (or cloud) and the database management system
+by the appropriate security measures. Furthermore, we assume that the
+server ensures that the communication channel between the server and
+the application running on the mobile device is secure (e.g., SSL) and
+each individual involved in the communication has his/her security
+credentials (including digital certificates, public and private key,
+etc.) distributed through an out-of-band security channel.  
+
+The mobile devices are not trusted. Once the mobile device is lost or
+stolen, the adversaries can capture stored data and may try all
+possible means to recover the sensitive data. Further, all other third
+party Android applications installed on the mobile devices (including
+\textit{medical applications}) are not trusted and may launch attacks
+to try to gather sensitive information. Since the Android platform 
+that we augmented with DASF is 
+transparent to application packages, malicious applications 
+may be installed and attempt to steal sensitive data from the 
+device or the environment. We assume the communication 
+parties are “semi-trusted”. That is, the user may misbehave by
+themselves (e.g., trying to save or forward a patient’s MRI 
+image without proper authorization) but do not conspire with 
+the server. 
+
+Therefore, we consider the following four different types of security
+threats for which the system must provide protection. 
+
+\begin{itemize}
+\item \textit{Legitimate user misbehavior:} The system must prevent 
+legitimate users from manually attempting to save or forward
+sensitive information.
+\item \textit{Malicious users:} The system must prevent sensitive information
+from being recovered from the device if it is lost or stolen.
+\item \textit{Application misbehavior:} The system must prevent legitimate
+applications from attempting to save or forward
+sensitive information that is not authorized by the organization’s
+policies. For example, it is typical to write an
+image to a file when it is received rather than storing
+the entire image in RAM. However, writing the image to
+a file may violate the organization’s policy and must be
+prevented by the system.
+\item \textit{Malicious applications:} The system must prevent malicious
+applications from attempting to steal sensitive
+information stored on the device (e.g., PHI information
+authorized to be saved to the device) or from the environment
+(e.g., verbal conversations occurring between
+patients and doctors).
+\end{itemize}
+

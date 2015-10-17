@@ -1,0 +1,51 @@
+This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+The top-level auxiliary file: main.aux
+The style file: plain.bst
+Database file #1: ref.bib
+Warning--to sort, need author or key in manhattan
+Warning--to sort, need author or key in hipaarule
+Warning--empty author in hipaarule
+Warning--empty author in manhattan
+Warning--empty journal in rbiresearch
+You've used 24 entries,
+            2118 wiz_defined-function locations,
+            645 strings with 9063 characters,
+and the built_in function-call counts, 11149 in all, are:
+= -- 1167
+> -- 541
+< -- 19
++ -- 215
+- -- 190
+* -- 782
+:= -- 1718
+add.period$ -- 88
+call.type$ -- 24
+change.case$ -- 167
+chr.to.int$ -- 0
+cite$ -- 29
+duplicate$ -- 464
+empty$ -- 806
+format.name$ -- 190
+if$ -- 2474
+int.to.chr$ -- 0
+int.to.str$ -- 24
+missing$ -- 24
+newline$ -- 121
+num.names$ -- 44
+pop$ -- 172
+preamble$ -- 1
+purify$ -- 143
+quote$ -- 0
+skip$ -- 361
+stack$ -- 0
+substring$ -- 656
+swap$ -- 171
+text.length$ -- 19
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 96
+warning$ -- 5
+while$ -- 101
+width$ -- 26
+write$ -- 311
+(There were 5 warnings)

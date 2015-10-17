@@ -1,0 +1,148 @@
+\begin{thebibliography}{10}
+
+\bibitem{hipaarule}
+Hipaa privacy rule.
+\newblock {\em U.S. Department of Health and Human Services}, 2002.
+
+\bibitem{manhattan}
+Smartphones, tablets and mobile marketing.
+\newblock {\em Manhattan Research}, 2012.
+
+\bibitem{Andrus}
+Jeremy Andrus, Christoffer Dall, Alexander~Van't Hof, Oren Laadan, and Jason
+  Nieh.
+\newblock Cells: a virtual mobile smartphone architecture.
+\newblock In {\em SOSP}, 2011.
+
+\bibitem{Au_ccs12}
+Kathy Wain~Yee Au, Yi~Fan Zhou, Zhen Huang, and David Lie.
+\newblock Pscout: analyzing the android permission specification.
+\newblock In {\em Proceedings of the 2012 ACM conference on Computer and
+  communications security}, 2012.
+
+\bibitem{Batyuk}
+Leonid Batyuk, Markus Herpich, Seyit~Ahmet Camtepe, Karsten Raddatz,
+  Aubrey-Derrick Schmidt, and Sahin Albayrak.
+\newblock Using static analysis for automatic assessment and mitigation of
+  unwanted and malicious activities within android applications.
+\newblock {\em 7th International Conference on Malicious and Unwanted
+  Software}, 0, 2011.
+
+\bibitem{Becher}
+Michael Becher, Felix~C. Freiling, Johannes Hoffmann, Thorsten Holz, Sebastian
+  Uellenbeck, and Christopher Wolf.
+\newblock Mobile security catching up? revealing the nuts and bolts of the
+  security of mobile devices.
+\newblock In {\em Proceedings of the IEEE Symposium on Security and Privacy},
+  2011.
+
+\bibitem{Beresford}
+Alastair~R. Beresford, Andrew Rice, Nicholas Skehin, and Ripduman Sohan.
+\newblock Mockdroid: trading privacy for application functionality on
+  smartphones.
+\newblock In {\em Proceedings of the 12th Workshop on Mobile Computing Systems
+  and Applications}, 2011.
+
+\bibitem{Burguera}
+Iker Burguera, Urko Zurutuza, and Simin Nadjm-Tehrani.
+\newblock Crowdroid: behavior-based malware detection system for android.
+\newblock In {\em Proceedings of the 1st ACM workshop on Security and privacy
+  in smartphones and mobile devices}, 2011.
+
+\bibitem{taintdroid}
+William Enck, Peter Gilbert, Byung-Gon Chun, Landon~P. Cox, Jaeyeon Jung,
+  Patrick McDaniel, and Anmol~N. Sheth.
+\newblock Taintdroid: an information-flow tracking system for realtime privacy
+  monitoring on smartphones.
+\newblock In {\em OSDI}, 2010.
+
+\bibitem{Enck_ccs09}
+William Enck, Machigar Ongtang, and Patrick McDaniel.
+\newblock On lightweight mobile phone application certification.
+\newblock In {\em ACM CCS}, 2009.
+
+\bibitem{Fahl}
+Sascha Fahl, Marian Harbach, Thomas Muders, Lars Baumg\"{a}rtner, Bernd
+  Freisleben, and Matthew Smith.
+\newblock Why eve and mallory love android: an analysis of android ssl
+  (in)security.
+\newblock In {\em Proceedings of the 2012 ACM conference on Computer and
+  communications security}, 2012.
+
+\bibitem{Felt_ccs11}
+Adrienne~Porter Felt, Erika Chin, Steve Hanna, Dawn Song, and David Wagner.
+\newblock Android permissions demystified.
+\newblock In {\em Proceedings of the 18th ACM conference on Computer and
+  communications security}, 2011.
+
+\bibitem{Felt}
+Adrienne~Porter Felt, Matthew Finifter, Erika Chin, Steve Hanna, and David
+  Wagner.
+\newblock A survey of mobile malware in the wild.
+\newblock In {\em Proceedings of the 1st ACM workshop on Security and privacy
+  in smartphones and mobile devices}, 2011.
+
+\bibitem{mdnews}
+Jessica Grogan.
+\newblock Smartphones partly to blame for hipaa compliance issue.
+\newblock {\em MDNews.com}, Jan 2012.
+
+\bibitem{skey}
+Neil~M. Haller.
+\newblock {The S/KEY One-time Password System}.
+\newblock In {\em Proceedings of the Internet Society Symposium on Network and
+  Distributed System Security}, 1994.
+
+\bibitem{Hornyack}
+Peter Hornyack, Seungyeop Han, Jaeyeon Jung, Stuart Schechter, and David
+  Wetherall.
+\newblock These aren't the droids you're looking for: retrofitting android to
+  protect data from imperious applications.
+\newblock In {\em ACM CCS}, 2011.
+
+\bibitem{Lange}
+Matthias Lange, Steffen Liebergeld, Adam Lackorzynski, Alexander Warg, and
+  Michael Peter.
+\newblock L4android: a generic operating system framework for secure
+  smartphones.
+\newblock In {\em Proceedings of the ACM workshop on Security and privacy in
+  smartphones and mobile devices}, 2011.
+
+\bibitem{Lu_ccs12}
+Long Lu, Zhichun Li, Zhenyu Wu, Wenke Lee, and Guofei Jiang.
+\newblock Chex: statically vetting android apps for component hijacking
+  vulnerabilities.
+\newblock In {\em Proceedings of the 2012 ACM conference on Computer and
+  communications security}, 2012.
+
+\bibitem{Nauman}
+Mohammad Nauman, Sohail Khan, and Xinwen Zhang.
+\newblock Apex: extending android permission model and enforcement with
+  user-defined runtime constraints.
+\newblock In {\em Proceedings of the 5th ACM Symposium on Information, Computer
+  and Communications Security}, 2010.
+
+\bibitem{Ongtang}
+Machigar Ongtang, Stephen McLaughlin, William Enck, and Patrick McDaniel.
+\newblock Semantically rich application-centric security in android.
+\newblock In {\em Proceedings of the 2009 Annual Computer Security Applications
+  Conference}, 2009.
+
+\bibitem{rbiresearch}
+ABI Research.
+\newblock
+  http://venturebeat.com/2013/02/06/800-million-android-smartphones-300-million-iphones-in-active-use-by-december-2013-study-says/.
+\newblock 2013.
+
+\bibitem{xjiang_oak12}
+Yajin Zhou and Xuxian Jiang.
+\newblock Dissecting android malware: Characterization and evolution.
+\newblock In {\em IEEE Symposium on Security and Privacy}, pages 95--109, 2012.
+
+\bibitem{xjiang_11}
+Yajin Zhou, Xinwen Zhang, Xuxian Jiang, and Vincent~W. Freeh.
+\newblock Taming information-stealing smartphone applications (on android).
+\newblock In {\em Proceedings of the 4th international conference on Trust and
+  trustworthy computing}, 2011.
+
+\end{thebibliography}
