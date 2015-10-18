@@ -1,20 +1,21 @@
 %\vspace{-3mm}
 \section{Evaluation}
 
-We test our prototype of DASF on a Galaxy Nexus (\textit{GT-I9250}),
-which includes a 1.2 GHz dual-core ARM Cortex-A9 processor,
-1 GB of RAM, and 16 GB of flash memory.  Our goal is to
-validate DASF that provides adequate protection against the
-previously discussed security threats and provide a
-performance evaluation for the system overhead. 
+We test our prototype of DASF on a Galaxy Nexus (\textit{GT-I9250}).
+%,which includes a 1.2 GHz dual-core ARM Cortex-A9 processor,
+%1 GB of RAM, and 16 GB of flash memory. 
+Our goal is to validate that DASF provides adequate protection against the
+previously discussed security threats, and evaluate the performance overhead.
+% and provide a
+%performance evaluation for the system overhead. 
 
 \subsection{Security Evaluation}
 
-As previously discussed, we consider the four different
+As previously discussed, we consider four different
 types of security threats that DASF must provide protections
-against. Due to the space constrain, we present our study of the
+against. Due to the space constraint, we present our study of the
 security evaluation by using the following carefully selected
-attacking examples which emulate the most adverse environment. 
+attack examples which emulate the most adverse environment. 
 
 %\textit{(1) legitimate user misbehavior},
 %\textit{(2) malicious users}, \textit{(3) application misbehavior},
@@ -47,29 +48,28 @@ that receives data from the server that has restrictions imposed on
   transmits the recorded audio to an external server.
 \end{itemize}
 
-In the first test, a scenario was created that a user was viewing an
-image with the write-to-flash permission disabled, transmitted from
-the server.  Then the user tried to save the image (e.g., by long
-pressing on the image to have the option to save it to the SD card) to
-the local flash storage.  This attempt was defeated 
-because the image's privacy tag checking raised a red flag and then
-the flash memory writing is blocked. 
+In the first test, a scenario was created where a user was viewing an image
+transmitted from the server with the write-to-flash permission disabled.  Then
+the user tried to save the image (e.g., by long pressing on the image to have
+the option to save it to the SD card) to the local flash storage.  This attempt
+was defeated because the image's privacy tag was detected by our enforcement
+hooks, and the write operaton was blocked.
+%the image's privacy tag checking raised a red flag and 
+%then the flash memory writing is blocked. 
 
 %We ran the first test and found that DASF successfully blocked the
 %data from being forwarded from the device and saved to the
 %device. Thus, DASF enforced the policy imposed on the data from the
 %server. 
 
-The second test emulated a device stealing scenario where the lost is
-reported. Given the security features deployed in DASF, it is the
-attacker's best interest to immediately disconnect the device from
-Internet (to evade the launching of the system counter-attack
-mechanism, e.g., remote wipe) with an attempt to compromise the PHI
-stored in a previous session. This attacking attempt, however, was
-defeated since the system forced the termination of
-the \textit{medical application} after a specific number of
-consecutive server heartbeats (e.g., 10) were missed, which in turn
-released the memory containing the PHI.
+The second test emulated a device theft scenario where a device is reported
+missing. Given the security features deployed in DASF, it is the attacker's
+best interest to immediately disconnect the device from Internet (to evade the
+launching of the system counter-attack mechanism, e.g., remote wipe) with an
+attempt to compromise the PHI stored in a previous session. This attack attempt
+was defeated since the system forced the termination of the \textit{medical
+application} after a specific number of consecutive server heartbeats (e.g.,
+10) were missed, which released the memory containing the PHI.
 
 %When we ran the third test, we confirmed that DASF
 %successfully blocked the data from being saved to a file.  Moreover, we
@@ -80,15 +80,15 @@ released the memory containing the PHI.
 In the third test, we developed a misbehaving application that
 silently checks the received data sensitivities and stores the highly
 sensitive data to a file (without the proper authorization). Again,
-this attempt is defeated by the privacy tag verification place in
-DASF. 
+this attempt is defeated by the DASF's enforcement hooks. 
 
 
-To prevent malicious applications from attempting to steal sensitive
-information stored on the device (e.g., PHI information authorized to
-be saved to the device), we rely on Android's file system privileges
-(e.g., UIDs) and our restriction that medical applications are
-assigned a unique UID. We ran the last test by starting the malicious
+%To prevent malicious applications from attempting to steal sensitive
+%information stored on the device (e.g., PHI information authorized to
+%be saved to the device), we rely on Android's file system privileges
+%(e.g., UIDs) and our restriction that medical applications are
+%assigned a unique UID.
+For the last test, we started the malicious
 voice memo recorder and confirmed that it successfully recorded data
 in the background.  Next, we created another application that
 restricts the \textit{record audio} permission when the user presses a
@@ -104,10 +104,10 @@ conversations may include PHI data (e.g., outside of patient rooms).
 \subsection{Performance Evaluation}
 
 Since DASF is invoked whenever an application, or application
-component is started, we test the performance overhead on the starting
+component is started, we test the performance overhead of starting
 activities and services on the Galaxy Nexus running our prototype.  To get
 a baseline for comparison, we repeated the tests on the stock
-Android \textit{Jelly Bean} platform and on TaintDroid.  Furthermore,
+Android \textit{Jellybean} platform and on TaintDroid.  Furthermore,
 we also tested the overhead of \textit{medical applications} using our
 message protocol. 
 
@@ -117,21 +117,21 @@ invoked to determine whether the activity or service may be started.
 Therefore, we tested the time that it takes to launch activities and
 services.  We ran the tests for 10 times and record the average
 value.  The same procedures were repeated on the stock
-Android \textit{Jelly Bean} platform and on TaintDroid.  
+Android \textit{Jellybean} platform and on TaintDroid.  
 
 Fig.~\ref{fig:component} shows the performance overhead of starting
 activities and services on our prototype, the stock
-Android \textit{Jelly Bean} platform, and on TaintDroid. As the figure
+Android \textit{Jellybean} platform, and on TaintDroid. As the figure
 shows, our prototype takes 118 milliseconds on average to start an
 activity and 17 milliseconds on average to start a service.  The stock
-Android \textit{Jelly Bean} platform takes 94 milliseconds on average
+Android \textit{Jellybean} platform takes 94 milliseconds on average
 to start an activity and 8 milliseconds on average to start a service.
 The TaintDroid platform takes 115 milliseconds on average to start an
 activity and 14 milliseconds on average to start a service.  We assume
 that the overhead when comparing TaintDroid and the stock
-Android \textit{Jelly Bean} platform is due to the extra memory that
-needs to be allocated for the privacy tags in the Java stack. 
-Compared to the overhead of TaintDroid, our prototype results in
+Android \textit{Jellybean} platform is due to the extra memory
+allocated for the privacy tags in the Java stack. 
+Compared to TaintDroid, our prototype results in
 a minimal overhead on starting activities and services. 
 
 \begin{figure}[ht]
@@ -151,9 +151,9 @@ transmit the data over the network since that is related
 to the overhead of the network speed rather than the overhead caused by
 our message protocol.  
 
-Furthermore, we also record the time that it takes the system to
+Further, we also record the time that it takes the system to
 enforce policy \textit{restrictions} and \textit{unrestrictions}.  As
-the Fig.~\ref{fig:performance} suggests, our message 
+Fig.~\ref{fig:performance} suggests, our message 
 protocol spends 54.9 microseconds on average to parse and returns 1-KB of
 data back to the application, 73.2 microseconds on average for 5-KB, 
 720.2 microseconds on average for 100-KB, 8 milliseconds on average
@@ -176,7 +176,7 @@ for permission unrestrictions.
 \label{fig:performance}
 \end{figure}
 
-\subsection{Limitations}
+\subsection{Limitations and Future Work}
 
 %There are three current limitations of the DASF prototype.  First,
 %the sensitivity level of the data can be cleared since TaintDroid's
@@ -190,23 +190,54 @@ for permission unrestrictions.
 %a user can take a picture, from a separate camera, on the device
 %screen and, as the result, acquires the picture that is unauthorized. 
 
-There are three current limitations of the DASF prototype.  First, 
-the sensitivity level of the data collected by the applications can be
-cleared since TaintDroid's propagation logic does not address implicit
-flows. As the result, the applications may break the security policies
-imposed on that data. An immediate solution would introduce the
-application authentication procedure to certify the authenticity of the
-applications. A permanent fix is to get rid of TaintDroid and address
-the problem in the native Android. Second, DASF does not
-allow applications to use third-party native libraries (due to
-TaintDroid's restrictions) since they can be used to clear privacy
-tags.  Our future work will address the above two limitations by
-directly building our DASF on the native Android. Third, DASF does not
-currently handle propagating the sensitivity level of data displayed
-on the screen.  Therefore, a user can take a picture, from a separate
-camera, on the device screen and, as the result, acquires the picture
-that is unauthorized.  At this moment, we have no solution to address 
-this type of privacy breaches but argue that the amount of the
-information leakage is limited because the quality of the image
-captured in the above way (e.g., the number pixels per inch) has no
-comparison to the original quality.
+There are mainly four limitations of the DASF prototype.  First, 
+the privacy tags of the data collected by applications can be cleared since
+TaintDroid's propagation logic does not address implicit flows. As a result,
+applications may subvert the security policies imposed on that data.  As future
+work, we will address this problem by integrating SpanDex's\cite{cgl+14}
+technique of propagating privacy tags through implicit flows.  Second, DASF
+does not allow applications to use third-party native libraries (due to
+TaintDroid's restrictions), since TaintDroid cannot track information flows
+through native code. This limitation can be addressed by assigning privacy tags
+to the entire process and using process-level enforcement once the JNI boundary
+has been crossed, and enforcing the communication protocol to incur in the
+kernel.  Third, DASF does not currently handle propagating the sensitivity
+level of data displayed on the screen. Therefore, a user can take a screenshot
+to save or export data displayed on the screen. We leave it as future work to
+propagate privacy tags from data used during the rendering of the user
+interface to Android's SurfaceFlinger component. Fourth, DASF may undesirably
+evict data in RAM during short network disconnects. Therefore, as future work,
+we aim to develop a mechanism to tolerate short network disconnects without
+sacrificing the security countermeasure capabilities of DASF.
+
+
+%An immediate solution would introduce the
+%application authentication procedure to certify the authenticity of the
+%applications. A permanent fix is to get rid of TaintDroid and address
+%the problem in the native Android. 
+%Second, DASF does not
+%allow applications to use third-party native libraries (due to
+%TaintDroid's restrictions), since they can be used to clear privacy
+%tags.  Our future work will address the above two limitations by
+%directly building our DASF on the native Android. Third, DASF does not
+%Therefore, a user can take a picture, from a separate
+%camera, on the device screen and, as the result, acquires the picture
+%that is unauthorized.  At this moment, we have no solution to address 
+%this type of privacy breaches but argue that the amount of the
+%information leakage is limited because the quality of the image
+%captured in the above way (e.g., the number pixels per inch) has no
+%comparison to the original quality.
+
+
+%Our future work includes the system enhancement in the following aspects.
+%First, we need to develop a mechanism to differentiate the network brokeage and
+%security attacks.  Ideally, DASF will allow a short disconnect operation
+%without sacrificing the security countermeasure capabilities. Second, we will
+%start our development of DASF on a native Android system instead of the
+%TaintDroid to further improve the system latency performance and enhance the
+%security performance as discussed previously.  
+
+
+
+
+

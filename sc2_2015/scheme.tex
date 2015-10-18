@@ -6,30 +6,26 @@
 
 %\subsection{Security Model}
 
-On an Android device, there are
-a set of applications, $A := \left\{a_{1},a_{2},\ldots,a_{n}\right\}$.
-Each application, $\forall a_{i} \in A$, where $1 \le i \le n$,
-contains a set of permissions that the application requests,
-$P_{a_{i}} := \left\{p_{1}, p_{2},\ldots,p_{m}\right\}$,
-and a set of components,
-$C_{a_{i}} := \left\{c_{1},c_{2},\ldots,c_{q}\right\}$.
-Each application is either a system application, $S_{A}$,
-or a third-party application, $T_{A}$, such that $S_{A}\subset A$, and $T_{A} \subset A$,
-but $S_{A} \cap T_{A} = \left\{\right\}$.
+On an Android device, there are a set of applications, $A :=
+\left\{a_{1},a_{2},\ldots,a_{n}\right\}$.  Each application, $\forall a_{i} \in
+A$, where $1 \le i \le n$, contains a set of permissions that the application
+requests, $P_{a_{i}} := \left\{p_{1}, p_{2},\ldots,p_{m}\right\}$, and a set of
+components, $C_{a_{i}} := \left\{c_{1},c_{2},\ldots,c_{q}\right\}$.  Each
+application is either a system application, $S_{A}$, or a third-party
+application, $T_{A}$, such that $S_{A}\subset A$, and $T_{A} \subset A$, but
+$S_{A} \cap T_{A} = \left\{\right\}$.
 
 \subsection{Dynamic Privilege Restriction Security Policy.}  
 
-A permission, $p$, is restricted if the restricted permission, denoted
-as $R\left(p\right)$, is imposed
-by a specific application $a_{i}$.
+A permission, $p$, is restricted if the restricted permission, denoted as
+$R\left(p\right)$, is imposed by a specific application $a_{i}$.
 %such that $a_{j} \in A$ and $1 \le j \le m$.  
-In Android, permissions are granted at the granularity
-of the entire application.  If the permissions of a specific
-application, $a_i$, is granted, its corresponding components,
-$C_{a_i}$ are allowed to be launched. Obviously, for any application
-that can successfully run, each of its components has to have the
-permission to be launched. We use $L(C_{a_i})$ to
-denote the launching of $a_i$'s components: $c_1, c_2,...,c_q$.
+In Android, permissions are granted at the granularity of the entire
+application.  If the permissions of a specific application, $a_i$, is granted,
+its corresponding components, $C_{a_i}$ are allowed to be launched. Obviously,
+for any application that can successfully run, each of its components has to
+have the permission to be launched. We use $L(C_{a_i})$ to denote the launching
+of $a_i$'s components: $c_1, c_2,...,c_q$.
 %
 %Since permissions are granted at the granularity
 %of the entire application rather than at the granularity of its individual
@@ -37,15 +33,14 @@ denote the launching of $a_i$'s components: $c_1, c_2,...,c_q$.
 %to be launched is denoted as $L\left(C_{a_{i}}\right)$. This means,
 %$\forall c_{k} \in C_{a_{i}} : L\left(c_{k}\right)$ such that 
 %$1 \le k \le o$.  
-Furthermore, we denote killing the process
-that an application, $a_{i}$, is running under as $K(a_{i})$.
+Furthermore, we denote killing the process that an application, $a_{i}$, is
+running under as $K(a_{i})$.
 
-Therefore, the security policy for an application is a procedure of
-imposing the restricted permissions which determine whether or not the
-application and its components can be launched. Given an application
-$a_i$, its components launching, $L(C_{a_i})$, will be
-successful as long as one the security policy satisfy any one of the
-following conditions:
+Therefore, the security policy for an application is a procedure of imposing
+the restricted permissions which determine whether or not the application and
+its components can be launched. Given an application $a_i$, its components
+launching, $L(C_{a_i})$, will be successful as long as one the security policy
+satisfy any one of the following conditions:
 
 \[\left\{
 \begin{array}{l}
@@ -172,7 +167,8 @@ has the sensitivity level of $d_{k}$.
 
 We define two operations on the data that our security policy
 must handle.  First, $W(d_{j})$, denotes writing the data to
-flash memory (e.g., to a file or an SQLite database). Second,
+flash memory (e.g., to a file). Second,
+%flash memory (e.g., to a file or an SQLite database). Second,
 $F(d_{j})$ denotes forwarding the data from the device
 (e.g., through a socket, bluetooth socket, SMS, and MMS).
 Furthermore, data, $d_{j}$, that can either be forwarded from the
@@ -200,7 +196,7 @@ of privacy tags are adjusted as follows when data is combined:
 $T\left(d_{j}\right) = t_1 \wedge T\left(d_{k}\right) = t_2 \to T\left(d_{j}+d_{k}\right) = t_0$.
 
 This propagation rules ensures that if data that is restricted from
-being forwarded from the device is combined with data the is restricted
+being forwarded from the device is combined with data that is restricted
 from being written to flash memory, the combined data will be restricted
 from being written to the flash memory and forwarded from the device.
 
@@ -214,7 +210,7 @@ a secure communication channel between the client (e.g., mobile
 device) and the server.
 
 The message protocol consists of applications sending a request to
-the server (e.g., requesting data) and the server responding back
+a server (e.g., requesting data) and the server responding back
 to the request (e.g., sending the data).  The message protocol
 allows the server to impose a sensitivity level on the data in
 its response, and thus, impose a security policy on the data that
@@ -233,7 +229,7 @@ sensitivity level, and the length of the payload.  The contents of a
 
 %\vspace{-3mm}
 
-When an application requests data from the server, the server
+When an application requests data from a server, the server
 responds back to the client with
 $data\_message\left(\left\{sensitivity\_level, response\right\}\right)$.
 The system extracts sensitivity level and applies that sensitivity level
